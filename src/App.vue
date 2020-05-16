@@ -36,7 +36,7 @@
         class="mt-4"
         text="Создать"
         type="default"
-        @click="create()"
+        @click="fetch()"
       />
     </dx-popup>
 
