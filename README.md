@@ -1,24 +1,5 @@
-# elastoo
+# vue-devextreme-linear-pie-charts
 
-## Project setup
-```
-yarn install
-```
+Выполнение тестового задания.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Открыть можно тут: https://liquidsolid.github.io/vue-devextreme-linear-pie-charts/
