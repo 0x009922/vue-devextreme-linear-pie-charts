@@ -72,11 +72,17 @@ import LinearChart from './components/LinearChart';
 import PieChart from './components/PieChart';
 import api from './api';
 
+/**
+ * Доступные типы графиков
+ */
 const GRAPH_TYPES = {
   linear: Symbol('linear'),
   pie: Symbol('pie'),
 };
 
+/**
+ * Доступные источники данных
+ */
 const DATA_SOURCES = {
   linear: '5ea85157da01cf25d4586101',
   pie: '5ea8513dda01cf25d45860ff',
@@ -93,7 +99,11 @@ export default {
   },
   data: () => ({
     showDialog: false,
+
+    // Выбранный тип графика
     graphType: null,
+
+    // Выбранный источник данных
     dataSource: null,
     
     GRAPH_TYPES,
@@ -106,6 +116,7 @@ export default {
       { id: DATA_SOURCES.pie, name: 'Данные для пирога' },
     ],
 
+    // Данные
     data: null,
   }),
   computed: {
@@ -115,15 +126,14 @@ export default {
     },
   },
   methods: {
-    async create() {
-      try {
-        const dataSourceId = this.dataSource.id;
-        const { data } = await api.get(`${dataSourceId}/data`);
-        this.data = data;
-        this.showDialog = false;
-      } catch (err) {
-        console.log(err.response);
-      }
+    /**
+     * Загрузка данных и скрытие диалога при успешном выполнении
+     */
+    async fetch() {
+      const dataSourceId = this.dataSource.id;
+      const { data } = await api.get(`${dataSourceId}/data`);
+      this.data = data;
+      this.showDialog = false;
     },
   },
 };
